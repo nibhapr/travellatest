@@ -1,0 +1,30 @@
+---
+import Carousel from '../components/Carousel.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import Services from '../components/Services.astro';
+import OurPackages from '../components/OurPackages.astro';
+import TravellerReview from '../components/TravellerReview.astro';
+import OurPartner from '../components/OurPartner.astro';
+import JoinUs from '../components/JoinUs.astro';
+const title: string = "Travel Platform - Online Travel Agency";
+const description:string ="djdxkgjdklgjdfl"
+const structuredData = 
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Travel Platform",
+  "description": {description},
+  "url": Astro.url
+}
+---
+
+<Layout title={title}, description={description} structuredData ={structuredData},>
+  <Carousel />
+  <Header />
+  <Services />
+  <OurPackages />
+  <TravellerReview />
+  <OurPartner />
+  <JoinUs />
+</Layout>

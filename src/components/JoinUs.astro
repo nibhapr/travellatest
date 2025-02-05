@@ -1,0 +1,41 @@
+---
+
+---
+
+<div class="text-center mt-24 p-8 bg-[#F0F6FF] rounded-lg shadow-lg ">
+    <div class="relative ml-auto mb-12 ">
+      <img src="../assets/testi/testi-aero.svg" class="w-30 h-30 absolute -top-6 right-1/2 transform translate-x-1/2 animate-bounce" alt="Aeroplane" />
+    </div>
+    <h2 class="text-3xl font-bold mb-4">Join Us for More Updates</h2>
+    <p class="mb-8 text-lg text-gray-700">
+      Stay Informed, Stay Connected: Subscribe to Our Newsletter!
+    </p>
+    <form class="flex justify-center items-center space-x-4">
+      <input 
+        type="email" 
+        placeholder="Enter your email" 
+        class="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <button 
+        type="submit" 
+        class="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300"
+      >
+        <a href="/subscribe" class="text-white">Join Us</a>
+      </button>
+    </form>
+  </div>
+  
+  <style>
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-bounce {
+    animation: bounce 2s infinite;
+  }
+  </style>

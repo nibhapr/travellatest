@@ -1,0 +1,231 @@
+---
+import JoinUs from "../../components/JoinUs.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { MdxComponents } from "../../content/mdx-components";
+import Services from "@component/Services.astro";
+import Layout from "@/layouts/Layout.astro";
+
+export async function getStaticPaths() {
+	const docs = await getCollection("services");
+	return docs.map((services) => ({
+		params: { slug: services.slug },
+		props: services,
+	}));
+}
+
+type Props = CollectionEntry<"services">;
+const services = Astro.props;
+const slug = Astro.params.slug;
+
+// const toc = await getTableOfContents(doc.body);
+const {Content} = await services.render();
+
+if (!slug || !services) {
+	return new Response(null, {
+		status: 404,
+		statusText: "Not found",
+	});
+}
+
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "B2B Booking Solutions",
+  provider: {
+    "@type": "Organization",
+    name: "Travel Platform UAE",
+    url: "https://www.travelplatformuae.com",
+    logo: "https://www.travelplatformuae.com/src/assets/logo.png",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+971 52 2345 572",
+      contactType: "Customer Service",
+      areaServed: "AE",
+      availableLanguage: "English",
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Mango Hyper Market, Near Al Khail Gate, Al Qouz",
+      addressLocality: "Dubai",
+      addressCountry: "UAE",
+    },
+  },
+  description:
+    "Comprehensive booking solutions tailored for travel agencies and corporate entities. Streamline your operations with our advanced platform.",
+};
+---
+
+<Layout title=""  description="" structuredData={structuredData}>
+  <div
+    class="relative h-[60vh] sm:h-[50vh] md:h-[60vh] bg-gradient-to-r from-blue-900 via-purple-900 to-blue-900 overflow-hidden"
+  >
+    <div
+      class="absolute inset-0 transform-gpu"
+      style="transform: translateY(var(--scrollY))"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70"
+      >
+      </div>
+      <img
+        class="w-full h-full object-cover opacity-40 scale-110"
+        src="/src/assets/about/about1.png"
+        alt="Services Hero"
+      />
+    </div>
+    <div class="relative h-full flex items-center justify-center">
+      <div class="text-center space-y-6 px-4 sm:px-6 lg:px-8">
+        <h1
+          class="text-3xl sm:text-5xl md:text-7xl font-black text-white tracking-tight animate-fade-in"
+        >
+          Transform Your <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
+            >Travel Experience</span
+          >
+        </h1>
+        <p
+          class="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto animate-fade-in-up"
+        >
+          Innovative solutions for modern travel challenges
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <section class="py-10 sm:py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-10 sm:mb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+          <div class="p-6 sm:p-12 flex flex-col justify-center">
+            <div class="flex items-center gap-6 mb-4 sm:mb-8">
+              <h2 class="text-2xl sm:text-4xl font-bold text-gray-900">
+                <span class="text-yellow-500">{services.data.title}</span>
+              </h2>
+            </div>
+
+            <!-- Feature Image -->
+            <div class="mb-4 relative overflow-hidden rounded-lg">
+              <div
+                class="absolute top-2 right-2 bg-white/80 backdrop-blur-sm rounded-full px-3 py-1"
+              >
+                <div class="flex items-center gap-1">
+                  {
+                    [1, 2, 3, 4, 5].map(() => (
+                      <svg
+                        class="w-4 h-4 text-yellow-400"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
+
+            <p class="text-base sm:text-lg text-gray-600 mb-4 sm:mb-8">
+              {services.data.description}
+            </p>
+            <ul class="space-y-2 sm:space-y-4 mb-4 sm:mb-8">
+              {
+                [
+                  "Real-time Availability",
+                  "Competitive Pricing",
+                  "Instant Confirmations",
+                  "24/7 Support",
+                ].map((feature) => (
+                  <li class="flex items-center text-gray-700">
+                    <svg
+                      class="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2 sm:mr-3"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    {feature}
+                  </li>
+                ))
+              }
+            </ul>
+            <a
+              href="https://b2b.travelplatformonline.com"
+              class="inline-flex items-center justify-center px-6 py-2 sm:px-8 sm:py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 transition duration-300"
+            >
+              Get Started
+            </a>
+          </div>
+          
+          <div class="relative">
+            <img
+              src={services.data.cardImage.src}
+              alt="B2B Booking Platform"
+              class="h-full w-full object-contain"
+            />
+            <div class="absolute top-4 right-4 flex space-x-2">
+              {
+                [...Array(5)].map(() => (
+                  <svg
+                    class="w-6 h-6 text-yellow-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+      <Content components={MdxComponents}/>
+    </div>
+      <JoinUs />
+  </section>
+</Layout>
+  <style>
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fade-in 1s ease-out;
+    }
+
+    .animate-fade-in-up {
+      animation: fade-in-up 1s ease-out;
+    }
+  </style>
+
+  <script>
+    window.addEventListener("scroll", () => {
+      document.documentElement.style.setProperty(
+        "--scrollY",
+        `${window.scrollY * 0.5}px`
+      );
+    });
+  </script>
+</Layout>

@@ -1,0 +1,85 @@
+---
+const servicesData = [
+  {
+    image: "/public/serviceimg/service30.jpg",
+    text: "B2B Booking Solutions for Travel Agencies and Corporate Entities",
+    route: "/services/post-7/",
+  },
+  {
+    image: "/public/serviceimg/service20.jpg",
+    text: "Visa Change service from Fujairah to Dubai",
+    route: "/services/post-1/",
+  },
+  {
+    image: "/public/serviceimg/service24.jpg",
+    text: "Umrah Assistance: 10 days Package By Road",
+    route: "/services/post-5/",
+  },
+  {
+    image: "/public/serviceimg/service21.jpg",
+    text: "Visa Change by Flight",
+    route: "/services/post-2/",
+  },
+  {
+    image: "/public/serviceimg/service31.jpg",
+    text: "Family Visa",
+    route: "/services/post-12/",
+  },
+  {
+    image: "/public/serviceimg/service27.jpg",
+    text: "Golden Visa Assistance",
+    route: "/services/post-8/",
+  }
+];
+---
+
+<div class="text-center p-8 mt-24">
+  <h2 class="text-4xl font-bold mb-4 text-left">Our Services</h2>
+  <p class="mb-8 text-left text-[#666666]">
+    Our comprehensive range of services ensures that every aspect of your
+    journey is meticulously planned <br /> and flawlessly executed, leaving you free
+    to immerse yourself in the magic of travel.
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
+    {servicesData.map((service, index) => (
+      <Fragment key={index}>
+        <div class="border border-gray-300 rounded-lg p-4 text-center flex flex-col justify-between">
+          <img
+            src={service.image}
+            alt={`Service ${index + 1}`}
+            class="w-full h-40 object-contain rounded-lg mb-4"
+          />
+          <p class="mb-4">{service.text}</p>
+          <a
+            href={service.route}
+            class="bg-white text-yellow-500 py-2.5 px-2 text-sm rounded-full hover:bg-yellow-400 border-2 border-yellow-500 hover:text-white flex items-center justify-center w-32 "
+          >
+            View Details
+            <svg
+              class="ml-2 w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        </div>
+      </Fragment>
+    ))}
+  </div>
+  <div class="mt-20 mb-8">
+    <a
+      href="/services"
+      class="bg-blue-500 text-white py-4 px-8 rounded-full hover:bg-blue-700"
+    >
+      View More
+    </a>
+  </div>
+</div>

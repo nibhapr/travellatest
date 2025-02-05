@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets';
+import NavLink from './NavLink.astro';
+import Logo from '../assets/logo.png';
+---
+
+<nav class="top-0 w-full fixed z-50 bg-white shadow-lg">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <!-- Hamburger Menu for Mobile -->
+      <div class="block lg:hidden mr-6">
+        <button id="menu-btn" class="text-black focus:outline-none">
+          <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <!-- Logo/Brand -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center">
+          <Image src={Logo} alt="Travel Logo" class="w-[210px] h-[30px]"/>
+        </a>
+      </div>
+      <!-- Navigation Links for Desktop -->
+      <div class="hidden lg:flex justify-center flex-1">
+        <ul class="flex space-x-4">
+          <li><NavLink href="/" class="text-black hover:bg-yellow-400 px-3 py-2 rounded-md text-md font-medium transition duration-300 mr-5">Home</NavLink></li>
+          <li><NavLink href="/about" class="text-black hover:bg-yellow-400 px-3 py-2 rounded-md text-md font-medium transition duration-300 mr-5">About Us</NavLink></li>
+          <li><NavLink href="/services" class="text-black hover:bg-yellow-400 px-3 py-2 rounded-md text-md font-medium transition duration-300 mr-5">Services</NavLink></li>
+          <li><NavLink href="/packages" class="text-black hover:bg-yellow-400 px-3 py-2 rounded-md text-md font-medium transition duration-300 mr-5">Packages</NavLink></li>
+          <li><NavLink href="/news" class="text-black hover:bg-yellow-400 px-3 py-2 rounded-md text-md font-medium transition duration-300 mr-5">News</NavLink></li>
+          <li><NavLink href="/contact" class="text-black hover:bg-yellow-400 px-3 py-2 rounded-md text-md font-medium transition duration-300 mr-5">Contact Us</NavLink></li>
+          <li><NavLink href="https://b2b.travelplatformonline.com/" class="text-black hover:bg-yellow-400 px-3 py-2 rounded-md text-md font-medium transition duration-300 mr-5">B2B Bookings</NavLink></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu (hidden by default) -->
+  <div id="mobile-menu" class="lg:hidden fixed inset-0 transform translate-x-full transition-transform duration-300 ease-in-out">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+    
+    <!-- Menu Content -->
+    <div class="absolute right-0 h-full w-[80%] max-w-sm bg-white shadow-lg transform">
+      <div class="flex flex-col h-full">
+        <!-- Close Button -->
+        <button id="close-menu" class="absolute top-4 right-4 p-2 text-gray-500 hover:text-black">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <!-- Menu Items -->
+        <div class="overflow-y-auto py-16 px-6">
+          <ul class="space-y-4">
+            <li><NavLink href="/" class="block text-lg font-medium p-4 hover:bg-yellow-50 rounded-xl transition-colors duration-200 border-b border-gray-100">Home</NavLink></li>
+            <li><NavLink href="/about" class="block text-lg font-medium p-4 hover:bg-yellow-50 rounded-xl transition-colors duration-200 border-b border-gray-100">About Us</NavLink></li>
+            <li><NavLink href="/services" class="block text-lg font-medium p-4 hover:bg-yellow-50 rounded-xl transition-colors duration-200 border-b border-gray-100">Services</NavLink></li>
+            <li><NavLink href="/packages" class="block text-lg font-medium p-4 hover:bg-yellow-50 rounded-xl transition-colors duration-200 border-b border-gray-100">Packages</NavLink></li>
+            <li><NavLink href="/news" class="block text-lg font-medium p-4 hover:bg-yellow-50 rounded-xl transition-colors duration-200 border-b border-gray-100">News</NavLink></li>
+            <li><NavLink href="/contact" class="block text-lg font-medium p-4 hover:bg-yellow-50 rounded-xl transition-colors duration-200 border-b border-gray-100">Contact Us</NavLink></li>
+            <li><NavLink href="https://b2b.travelplatformonline.com/" class="block text-lg font-medium p-4 hover:bg-yellow-50 rounded-xl transition-colors duration-200">B2B Bookings</NavLink></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const closeBtn = document.getElementById('close-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuBtn && mobileMenu && closeBtn) {
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('translate-x-full');
+      document.body.classList.add('overflow-hidden');
+    });
+
+    const closeMenu = () => {
+      mobileMenu.classList.add('translate-x-full');
+      document.body.classList.remove('overflow-hidden');
+    };
+
+    closeBtn.addEventListener('click', closeMenu);
+
+    // Close menu when clicking on backdrop
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        closeMenu();
+      }
+    });
+
+    // Close menu when pressing Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
+        closeMenu();
+      }
+    });
+  }
+</script>

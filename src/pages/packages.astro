@@ -1,0 +1,199 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Headerimg from '../components/Headerimg.astro';
+import JoinUs from '../components/JoinUs.astro';
+const title: string= "Travel Platform -  Our Packages";
+const description = "Explore our travel packages to various destinations."
+const structuredData ={
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Travel Packages",
+      "description": "Explore our travel packages to various destinations.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Travel Platform UAE"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://b2b.travelplatformonline.com/",
+          "priceCurrency": "AED",
+          "price": "Starting from per person",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Holiday's packages in dubai",
+            "description": "Explore the hidden gems of the city.",
+            "image": "./src/assets/ourpackage/package1.png"
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://b2b.travelplatformonline.com/",
+          "priceCurrency": "AED",
+          "price": "Starting from per person",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Holiday's packages in singapore",
+            "description": "Discover iconic landmarks and off-the-beaten-path gems.",
+            "image": "./src/assets/ourpackage/package2.png"
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://b2b.travelplatformonline.com/",
+          "priceCurrency": "AED",
+          "price": "Starting from per person",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Umrah packages",
+            "description": "Umrah 2024: Everything You Need to Know",
+            "image": "./src/assets/ourpackage/package3.jpg"
+          }
+        }
+      ]
+    }
+const packagesData = [
+  {
+    image: "./src/assets/ourpackage/packages1.jpg",
+    title: "Holiday's packages in Azerbaijan with your loved ones", 
+    description: "Valentine Special combos for Couples.",
+    price: "Starting from per person",
+    route: "https://b2b.travelplatformonline.com/"
+  },
+  {
+    image: "./src/assets/ourpackage/package2.png",
+    title: "Holiday's packages in singapore",
+    description: "Discover iconic landmarks and off-the-beaten-path gems.",
+    price: "Starting from per person",
+    route: "https://b2b.travelplatformonline.com/"
+  },
+  {
+    image: "./src/assets/ourpackage/package3.jpg",
+    title: "Umrah packages",
+    description: "Umrah 2024: Everything You Need to Know",
+    price: "Starting from per person",
+    route: "https://b2b.travelplatformonline.com/"
+  },
+  {
+    image: "./src/assets/ourpackage/package1.png",
+    title: "Holiday's packages in dubai",
+    description: "Explore the hidden gems of the city.",
+    price: "Starting from per person",
+    route: "https://b2b.travelplatformonline.com/"
+  },
+  {
+    image: "./src/assets/ourpackage/package1.png",
+    title: "Holiday's packages in dubai",
+    description: "Explore the hidden gems of the city.",
+    price: "Starting from per person",
+    route: "https://b2b.travelplatformonline.com/"
+  },
+  {
+    image: "./src/assets/ourpackage/package1.png",
+    title: "Holiday's packages in dubai",
+    description: "Explore the hidden gems of the city.",
+    price: "Starting from per person",
+    route: "https://b2b.travelplatformonline.com/"
+  }
+];
+---
+
+
+
+
+<Layout title = {title} description={description} structuredData ={structuredData}>
+  <!-- Hero Section -->
+   <!-- Hero Section with Parallax (Keeping this part) -->
+   <div
+   class="relative h-[60vh] sm:h-[50vh] md:h-[60vh] bg-gradient-to-r from-blue-900 via-purple-900 to-blue-900 overflow-hidden"
+ >
+   <div
+     class="absolute inset-0 transform-gpu"
+     style="transform: translateY(var(--scrollY))"
+   >
+     <div
+       class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70"
+     >
+     </div>
+     <img
+       class="w-full h-full object-cover opacity-40 scale-110"
+       src="/src/assets/about/about1.png"
+       alt="Services Hero"
+     />
+   </div>
+   <div class="relative h-full flex items-center justify-center">
+     <div class="text-center space-y-6 px-4 sm:px-6 lg:px-8">
+       <h1
+         class="text-3xl sm:text-5xl md:text-7xl font-black text-white tracking-tight animate-fade-in"
+       >
+       Our <span
+           class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
+           >Packages</span
+         >
+       </h1>
+       <p
+         class="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto animate-fade-in-up"
+       >
+       Our expert guides will unveil hidden gems, guiding you through iconic landmarks and off-the-beaten-path gems,
+        ensuring you capture the essence of this remarkable place
+       </p>
+     </div>
+   </div>
+ </div>
+
+  <div class="text-center p-8 mt-16">
+    <h2 class="text-4xl font-bold mb-4">Our Packages</h2>
+    <p class="mb-8 text-[#666666]">
+      Our expert guides will unveil hidden gems, guiding you through iconic landmarks and off-the-beaten-path gems, <br> ensuring you capture the essence of this remarkable place.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center ml-9 mr-9">
+      {packagesData.map((pkg, index) => (
+        <div class="relative border border-gray-300 rounded-lg p-4 text-center flex flex-col justify-between">
+          <div class="absolute -top-4 -left-4">
+            <div class="bg-yellow-500 w-32 h-6 transform -skew-x-12 flex items-center justify-center">
+              <span class="text-white text-xs">our best offer</span>
+            </div>
+          </div>
+          <div class="absolute top-1 right-2 flex space-x-1 pr-2">
+            <div class="w-2.5 h-2.5 bg-red-500 rounded-full"></div>
+            <div class="w-2.5 h-2.5 bg-blue-500 rounded-full"></div>
+            <div class="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+          </div>
+          <img
+            src={pkg.image}
+            alt={`Package ${index + 1}`}
+            class="w-full h-40 object-cover rounded-lg mb-4"
+          />
+          <h3 class="text-xl font-bold mb-2">{pkg.title}</h3>
+          <p class="mb-4">{pkg.description}</p>
+          <a
+            href={pkg.route}
+            class="bg-white text-yellow-500 py-1 px-2 text-sm rounded-full hover:bg-yellow-400 border-2 border-yellow-500 hover:text-white flex items-center justify-center w-32"
+          >
+            Book Now
+            <svg
+              class="ml-2 w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+          <div class="absolute bottom-2 right-2">
+            <div class="bg-blue-500 w-40 h-6 transform -skew-x-12 flex items-center justify-center">
+              <span class="text-white text-xs">{pkg.price}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+  <JoinUs />
+</Layout>

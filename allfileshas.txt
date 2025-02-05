@@ -1,0 +1,8 @@
+# This file contains a list of all files in the project with their hash values.
+# Format: <hash_value> <file_path>
+
+# Example:
+# abc123def456789 travel/src/pages/index.astro
+# xyz789ghi123456 travel/src/components/Header.astro
+
+

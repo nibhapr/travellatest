@@ -1,0 +1,62 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { SEO } from "astro-seo";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+import '../styles/base.css'
+export interface Props {
+	title: string;
+  description:string;
+	structuredData?: object;
+
+ }
+const {title,description,structuredData,}= Astro.props;
+
+---
+<html lang="en">
+<meta charset="utf-8" />
+  <head>
+    {
+      structuredData && (
+        <script
+        is:inline
+					type="application/ld+json"
+					set:html={JSON.stringify(structuredData)}
+        />
+      )
+    }
+    <SEO
+      title={ title ?? "travel platform"}
+      description= { description ?? "At Travel Platform, we believe that travel should be an enriching and hassle-free adventure."}
+      canonical= {Astro.url}
+      openGraph={{
+        basic: {
+          title: "Travel Platform",
+          type: "website",
+          image: Astro.url+'/og-image.jpg',
+          url: Astro.url,
+        },
+        optional: {
+          description:
+            "At Travel Platform, we believe that travel should be an enriching and hassle-free adventure.",
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+        site: "@yourtwitterhandle",
+        title: "Travel Platform",
+        description:
+          "At Travel Platform, we believe that travel should be an enriching and hassle-free adventure.",
+        image: Astro.url+'/og-image.jpg',
+      }}
+    />
+  </head>
+  <body>
+    <Navbar />
+    <WhatsAppButton mobile="7033772680" message="Hello, I need assistance!" />
+    <main>
+    <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

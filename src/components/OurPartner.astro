@@ -1,0 +1,54 @@
+---
+// filepath: /C:/Users/Adeeb/OneDrive - K L University/Desktop/astrotravel/travel/src/components/OurPartner.astro
+const partners = [
+  { id: 1, image: './src/assets/partners/partners1.jpg' },
+  { id: 2, image: './src/assets/partners/partners2.jpg' },
+  { id: 3, image: './src/assets/partners/partners3.jpg' },
+  { id: 4, image: './src/assets/partners/partners4.jpg' },
+  { id: 5, image: './src/assets/partners/partners5.jpg' },
+  { id: 6, image: './src/assets/partners/partners6.jpg' },
+  { id: 7, image: './src/assets/partners/partners7.jpg' },
+  { id: 8, image: './src/assets/partners/partners8.jpg' },
+  { id: 9, image: './src/assets/partners/partners9.jpg' },
+  { id: 10, image: './src/assets/partners/partners10.jpg' }
+];
+---
+
+<div class="text-center mt-24">
+  <h2 class="text-4xl font-bold mb-14">Our Partners</h2>
+  <div class="relative -z-50">
+    <!-- Mobile-friendly grid layout -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      {partners.map(partner => (
+        <div class="p-4 relative border" id={`partner-${partner.id}`}>
+          <!-- Three circles in the top-left corner -->
+          <div class="absolute top-2 left-2 flex space-x-1">
+            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+            <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+          </div>
+          <!-- Parallelogram label -->
+          <div class="parallelogram absolute bottom-2 right-2 text-xs">
+            <p class="text-xs text-white transform skew-x-12 ml-10">Fly with us!</p>
+          </div>
+          <!-- Image scaling with responsive classes -->
+          <img src={partner.image} alt={`Partner ${partner.id}`} class="w-full sm:w-1/2 h-auto mx-auto" />
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+.parallelogram {
+  height: 2rem;
+  background: #fbbf24;
+  transform: skewX(-20deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+</style>

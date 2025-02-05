@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Terms and Conditions" description="Explore our comprehensive terms and conditions to understand your rights and responsibilities while using our services.">
+   <!-- Hero Section with Parallax (Keeping this part) -->
+   <div
+   class="relative h-[60vh] sm:h-[50vh] md:h-[60vh] bg-gradient-to-r from-blue-900 via-purple-900 to-blue-900 overflow-hidden"
+ >
+   <div
+     class="absolute inset-0 transform-gpu"
+     style="transform: translateY(var(--scrollY))"
+   >
+     <div
+       class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70"
+     >
+     </div>
+     <img
+       class="w-full h-full object-cover opacity-40 scale-110"
+       src="/src/assets/about/about1.png"
+       alt="Services Hero"
+     />
+   </div>
+   <div class="relative h-full flex items-center justify-center">
+     <div class="text-center space-y-6 px-4 sm:px-6 lg:px-8">
+       <h1
+         class="text-3xl sm:text-5xl md:text-7xl font-black text-white tracking-tight animate-fade-in"
+       >
+       Terms and <span
+           class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
+           >Conditions</span
+         >
+       </h1>
+       <p
+         class="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto animate-fade-in-up"
+       >
+       Explore our comprehensive terms and conditions to understand your rights and responsibilities while using our services.
+       </p>
+     </div>
+   </div>
+ </div>
+  <section class="py-10 sm:py-20 bg-white mt-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden p-8 sm:p-10 md:p-12 relative">
+        <div class="absolute top-4 right-4 flex space-x-2">
+          <svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+          <svg class="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+          <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+        </div>
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-8 text-center">Terms <span class="text-yellow-500">and Conditions</span> </h1>
+        <p class="text-gray-700 mb-6 text-lg leading-relaxed">
+          Welcome to our travel platform. By accessing and using our services, you agree to comply with the following terms and conditions:
+        </p>
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-3xl font-semibold text-gray-900 mb-4">1. Acceptance of Terms</h2>
+            <p class="text-gray-700 text-lg leading-relaxed">
+              By using our services, you agree to be bound by these terms and conditions. If you do not agree with any part of these terms, you must not use our services.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-3xl font-semibold text-gray-900 mb-4">2. Changes to Terms</h2>
+            <p class="text-gray-700 text-lg leading-relaxed">
+              We reserve the right to modify these terms at any time. Any changes will be effective immediately upon posting on our website. Your continued use of our services constitutes acceptance of the revised terms.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-3xl font-semibold text-gray-900 mb-4">3. Use of Services</h2>
+            <p class="text-gray-700 text-lg leading-relaxed">
+              You agree to use our services only for lawful purposes and in accordance with these terms. You must not use our services in any way that may harm, disrupt, or interfere with the functioning of our platform.
+            </p>
+          </div>
+          <!-- Add more sections as needed -->
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import image1 from '/public/serviceimg/service30.jpg';
+// import image2 from '../assets/header/header2.png';
+// import image3 from '../assets/header/header3.png';
+---
+
+<div class="bg-white py-8 sm:py-12 mt-6 sm:mt-10">
+  <div class="container mx-auto px-4 sm:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12">
+      
+   <!-- Left Column - Image -->
+<div class="max-w-full md:max-w-2xl ml-0 md:ml-5 mt-5 md:mt-25">
+  <!-- Single large image -->
+  <div class="text-center">
+    <Image 
+      src={image1} 
+      alt="Image 1" 
+      class="w-full sm:w-[600px] h-[300px] sm:h-[300px] object-cover rounded-xl shadow-xl inline-block mt-20"
+    />
+  </div>
+</div>
+
+      <!-- Right Column - Content -->
+      <div class="space-y-4 sm:space-y-6">
+        <h1 class="text-2xl sm:text-4xl font-bold text-black leading-tight">
+          Travel Platform: 
+          <span class="block text-lg sm:text-2xl text-yellow-400 mt-2">Redefining Travel Experiences with Dedication and Excellence!</span>
+        </h1>
+        
+        <div class="grid grid-cols-3 gap-4">
+          <div class="p-3 sm:p-6 bg-red-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
+            <p class="text-xl sm:text-3xl font-bold text-red-700 mb-1 sm:mb-2">10</p>
+            <p class="text-xs sm:text-lg font-medium text-yellow-500">Years Experience</p>
+          </div>
+          <div class="p-3 sm:p-6 bg-red-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
+            <p class="text-xl sm:text-3xl font-bold text-red-700 mb-1 sm:mb-2">100+</p>
+            <p class="text-xs sm:text-lg font-medium text-yellow-500">Tour Guide</p>
+          </div>
+          <div class="p-3 sm:p-6 bg-red-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
+            <p class="text-xl sm:text-3xl font-bold text-red-700 mb-1 sm:mb-2">500+</p>
+            <p class="text-xs sm:text-lg font-medium text-yellow-500">Travelar Connect</p>
+          </div>
+        </div>
+
+        <p class="text-sm sm:text-lg leading-relaxed text-gray-600 bg-gray-50 p-3 sm:p-6 rounded-xl font-medium">
+          Based in the vibrant city of Dubai, Travel Platform stands tall as a renowned travel management company. Our reputation and success have been nurtured by the unwavering support of our valued customers and fueled by the tireless efforts and passionate energy of our dedicated staff. We strive not only to meet but to surpass customer expectations, ensuring their utmost satisfaction in every aspect of their journey. Our commitment to excellence has been recognized through numerous accolades and awards, serving as a testament to our unwavering dedication. We take pride in our ability to consistently deliver exceptional travel experiences that create lasting memories for our clients.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
